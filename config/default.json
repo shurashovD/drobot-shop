@@ -1,0 +1,8 @@
+{
+    "PORT": 5000,
+    "mongoURI": "mongodb://127.0.0.1/drobot-shop",
+    "moysklad": {
+        "login": "admin1@drobotsale",
+        "password": "12341234"
+    }
+}

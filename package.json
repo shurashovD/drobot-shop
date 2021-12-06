@@ -1,0 +1,31 @@
+{
+  "name": "drobot-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "admin:start": "npm run start --prefix admin",
+    "admin:build": "npm run build --prefix admin",
+    "server": "nodemon app",
+    "admin-dev": "concurrently \"npm run server\" \"npm run admin:start\"",
+    "start": "node app"
+  },
+  "author": "Dmitry Shurashov <shurashovd@yandex.ru>",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.14"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "list-to-tree": "^2.2.4",
+    "md5": "^2.3.0",
+    "mongoose": "^6.0.12",
+    "moysklad": "^0.10.0",
+    "multer": "^1.4.3",
+    "node-fetch": "^2.6.6"
+  }
+}
