@@ -6,6 +6,7 @@
   "scripts": {
     "admin:start": "npm run start --prefix admin",
     "admin:build": "npm run build --prefix admin",
+    "admin:install": "npm install --prefix admin",
     "server": "nodemon app",
     "admin-dev": "concurrently \"npm run server\" \"npm run admin:start\"",
     "start": "cross-env NODE_ENV=production node app"
