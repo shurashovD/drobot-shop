@@ -9,7 +9,7 @@
     "admin:install": "npm install --prefix admin",
     "server": "nodemon app",
     "admin-dev": "concurrently \"npm run server\" \"npm run admin:start\"",
-    "start": "cross-env NODE_ENV=production node app"
+    "start": "cross-env NODE_ENV=production pm2 start app.js"
   },
   "author": "Dmitry Shurashov <shurashovd@yandex.ru>",
   "license": "ISC",

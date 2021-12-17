@@ -29,7 +29,7 @@ export const sendFormData = async (url, data, files, headers = {}) => {
     for ( let [key, value] of Object.entries(data)) {
         formData.append(key, value)
     }
-
+    
     for (let i in files) {
         const [fileKey, fileName] = Object.entries(files[i])[0]
         formData.append(fileKey, fileName)

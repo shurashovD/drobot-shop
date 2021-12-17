@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Button, Col, Container, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getGoods, resetGoods } from '../../redux/goodsSlice'
+import { getGoods, moySkladSync, resetGoods } from '../../redux/goodsSlice'
 import GoodsPanel from './GoodsPanel'
 import GoodsTree from './GoodsTree'
 
@@ -9,12 +9,14 @@ export const GoodsPage = () => {
     const { loading } = useSelector(state => state.goodsState)
     const dispatch = useDispatch()
 
-    const syncHandler = () => {}
+    const syncHandler = () => {
+        dispatch(moySkladSync())
+    }
 
     useEffect(() => {
         dispatch(getGoods())
-        return dispatch(resetGoods())
-    }, [])
+        return () => dispatch(resetGoods())
+    }, [dispatch])
 
     return (
         <Container className="py-4">
