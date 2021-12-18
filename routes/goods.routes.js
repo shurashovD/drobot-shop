@@ -62,7 +62,7 @@ router.get('/get-all', async (req, res) => {
 router.post('/update', imgLoader, async (req, res) => {
     try {
         const { deleted, description, id, photos } = req.body
-        const dirPath = `/static/productImages/${req.body.id}/`
+        const dirPath = `/productImages/${req.body.id}/`
         const deletedPhotos = JSON.parse(deleted)
         const images = JSON.parse(photos).filter(({src}) => deletedPhotos.every(item => src !== item)).map(({added, src}) => {
             return added
