@@ -187,6 +187,7 @@ const goodsSlice = createSlice({
                 form: { ...state.form, name, description: description ?? '' },
                 loadedPhotos: images,
                 photos: images.map(src => ({ variant: CARD_PRIMARY, src })),
+                addedPhotos: [],
                 deletedPhotos: [],
                 loading: false
             }

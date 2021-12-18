@@ -19,8 +19,6 @@ const start = async () => {
     }
 }
 
-app.use('/static', express.static('static'))
-
 app.use('/api/auth', require('./routes/auth.route'))
 
 //пользователи;
@@ -54,5 +52,7 @@ app.use(
     authMiddleware,
     require('./routes/fields.route')
 )
+
+app.use(express.static('static'))
 
 start()
