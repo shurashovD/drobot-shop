@@ -50,6 +50,7 @@ router.get('/get-all', async (req, res) => {
         if ( !req.rights.categories.view ) {
             return res.status(403).json({ message: 'Не достаточно прав...' })
         }
+
         const list = await CategoryModel.find()
         const tree = getCategoriesByTree(list)
         return res.json(tree ?? [])
@@ -62,6 +63,10 @@ router.get('/get-all', async (req, res) => {
 
 router.post('/update', coverUpload.single('cover'), async (req, res) => {
     try {
+        if ( !req.rights.categories.edit ) {
+            return res.status(403).json({ message: 'Не достаточно прав...' })
+        }
+
         const { id, description } = req.body
         const { fileName } = req
         const imgSrc = `/covers/${id}/${fileName}`
@@ -91,6 +96,10 @@ router.post('/update', coverUpload.single('cover'), async (req, res) => {
 
 router.post('/moy-sklad-sync', async (req, res) => {
     try {
+        if ( !req.rights.categories.edit ) {
+            return res.status(403).json({ message: 'Не достаточно прав...' })
+        }
+
         await productFolderSync()
         const list = await CategoryModel.find()
         const tree = getCategoriesByTree(list)

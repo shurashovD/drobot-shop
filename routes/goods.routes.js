@@ -44,9 +44,10 @@ const getCategoriesByTree = list => {
 
 router.get('/get-all', async (req, res) => {
     try {
-        if ( !req.rights.categories.view ) {
+        if ( !req.rights.goods.view ) {
             return res.status(403).json({ message: 'Не достаточно прав...' })
         }
+
         const categories = await CategoryModel.find()
         const products = await ProductModel.find()
         const list = categories.concat(products)
@@ -61,6 +62,10 @@ router.get('/get-all', async (req, res) => {
 
 router.post('/update', imgLoader, async (req, res) => {
     try {
+        if ( !req.rights.goods.edit ) {
+            return res.status(403).json({ message: 'Не достаточно прав...' })
+        }
+
         const { deleted, description, id, photos } = req.body
         const dirPath = `/productImages/${req.body.id}/`
         const deletedPhotos = JSON.parse(deleted)
@@ -93,6 +98,11 @@ router.post('/update', imgLoader, async (req, res) => {
 
 router.post('/moy-sklad-sync', async (req, res) => {
     try {
+        if ( !req.rights.goods.edit ) {
+            return res.status(403).json({ message: 'Не достаточно прав...' })
+        }
+
+
         await productFolderSync()
         await productSync()
         const categories = await CategoryModel.find()
