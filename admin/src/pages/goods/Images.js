@@ -28,7 +28,7 @@ const Images = () => {
         <Row md={3} className="border border-top-0 rounded-bottom g-2 m-0 align-items-stretch p-2">
             {
                 photos.map(({variant, src, classList}, index) => 
-                    <Col key={`$_image_${index}`}>
+                    <Col key={`$_image_${index}`} style={{ minHeight: '20vh' }}>
                         <ProductImage
                             classList={classList}
                             variant={variant}
