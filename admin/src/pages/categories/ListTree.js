@@ -24,7 +24,7 @@ const ListTree = () => {
         </TreeItem>
     )
 
-    return (
+    return (categories.entries?.length > 0) ? (
         <TreeView
             aria-label="rich object"
             defaultCollapseIcon={ <ExpandMoreIcon /> }
@@ -35,6 +35,9 @@ const ListTree = () => {
         >
             { renderTree(categories) }
         </TreeView>
+    )
+    : (
+        <p className="text-center">Карта сайта пуста</p>
     )
 }
 

@@ -4,19 +4,15 @@ import authSlice from "./authSlice"
 import categorySlice from "./categorySlice"
 import fieldsSlice from "./fieldsSlice"
 import goodsSlice from "./goodsSlice"
+import transferSlice from "./transferSlice"
 
 export default configureStore({
-    middleware: (getDefaultMiddleware) => 
-    getDefaultMiddleware({
-        serializableCheck: {
-            ignoredActions: ['categorySlice/setPhoto']
-        }
-    }),
     reducer: {
         authState: authSlice,
         alertState: alertSlice,
         categoriesState: categorySlice,
         fieldsState: fieldsSlice,
-        goodsState: goodsSlice
+        goodsState: goodsSlice,
+        transferState: transferSlice
     }
 })

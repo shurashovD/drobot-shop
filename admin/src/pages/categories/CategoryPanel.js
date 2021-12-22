@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, CloseButton, Col, Form, Image, Placeholder, Row, Tab, Tabs } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { setForm, setPhoto, updateCategory } from '../../redux/categorySlice'
+import { deleteCategory, setForm, setPhoto, updateCategory } from '../../redux/categorySlice'
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined'
 
 const CategoryPanel = () => {
@@ -22,6 +22,10 @@ const CategoryPanel = () => {
 
     const updateHandler = () => {
         dispatch(updateCategory())
+    }
+
+    const deleteHandler = () => {
+        dispatch(deleteCategory())
     }
 
     return loading ? (
@@ -87,7 +91,8 @@ const CategoryPanel = () => {
                         </Tab>
                         <Tab eventKey="fields" title="Поля"></Tab>
                     </Tabs>
-                    <div className="mt-auto ms-auto">
+                    <div className="mt-auto w-100 d-flex justify-content-between">
+                        <Button variant="link" onClick={deleteHandler} className="text-danger">Удалить</Button>
                         <Button variant="primary" onClick={updateHandler}>Сохранить</Button>
                     </div>
                 </>

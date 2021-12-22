@@ -9,6 +9,7 @@ import { UserPage } from "./pages/users/UserPage"
 import CategoryPage from "./pages/categories/CategoryPage"
 import MainPage from "./pages/mainPage/MainPage"
 import FieldsPage from "./pages/fields/FieldsPage"
+import TransferPage from "./pages/transfer/TransferPage"
 
 export const BrowserRoutes = () => {
     const {id} = useSelector(state => state.authState)
@@ -43,6 +44,10 @@ export const BrowserRoutes = () => {
 
                 <Route path="/admin/goods">
                     <GoodsPage />
+                </Route>
+
+                <Route path="/admin/transfer">
+                    <TransferPage />
                 </Route>
 
                 <Redirect to="/admin/main" />

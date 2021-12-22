@@ -45,7 +45,7 @@ const getCategoriesByTree = list => {
 router.get('/get-all', async (req, res) => {
     try {
         if ( !req.rights.goods.view ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         const categories = await CategoryModel.find()
@@ -63,7 +63,7 @@ router.get('/get-all', async (req, res) => {
 router.post('/update', imgLoader, async (req, res) => {
     try {
         if ( !req.rights.goods.edit ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         const { deleted, description, id, photos } = req.body
@@ -99,7 +99,7 @@ router.post('/update', imgLoader, async (req, res) => {
 router.post('/moy-sklad-sync', async (req, res) => {
     try {
         if ( !req.rights.goods.edit ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
 

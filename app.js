@@ -29,14 +29,6 @@ app.use(
     require('./routes/users.route')
 )
 
-//категории;
-app.use(
-    '/api/categories',
-    bodyParser.json(),
-    authMiddleware,
-    require('./routes/categories.route')
-)
-
 // товары;
 app.use(
     '/api/goods',
@@ -51,6 +43,14 @@ app.use(
     bodyParser.json(),
     authMiddleware,
     require('./routes/fields.route')
+)
+
+// каталоги сайта;
+app.use(
+    '/api/categories',
+    bodyParser.json(),
+    authMiddleware,
+    require('./routes/categories.route')
 )
 
 app.use(express.static('static'))

@@ -8,7 +8,7 @@ const UserModel = require('../models/UserModel')
 router.get('/get-all', async (req, res) => {
     try {
         if ( !req.rights.users.view ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         const users = await UserModel.find({ login: { $ne: 'Administrator' } })
@@ -23,7 +23,7 @@ router.get('/get-all', async (req, res) => {
 router.post('/create', async (req, res) => {
     try {
         if ( !req.rights.users.edit ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         const { name, login, pass } = req.body.form
@@ -51,7 +51,7 @@ router.post('/create', async (req, res) => {
 router.post('/update', async (req, res) => {
     try {
         if ( !req.rights.users.edit ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         const { id } = req.body
@@ -92,7 +92,7 @@ router.post('/update', async (req, res) => {
 router.post('/get-by-id', async (req, res) => {
     try {
         if ( !req.rights.users.view ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         const { id } = req.body
@@ -110,7 +110,7 @@ router.post('/get-by-id', async (req, res) => {
 router.post('/remove', async (req, res) => {
     try {
         if ( !req.rights.users.edit ) {
-            return res.status(403).json({ message: 'Не достаточно прав...' })
+            return res.status(403).json({ message: 'Недостаточно прав...' })
         }
 
         await UserModel.findByIdAndDelete(req.body.id)
